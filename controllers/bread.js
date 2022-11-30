@@ -3,7 +3,7 @@ const Bread = require('../models/bread')
 
 //GET: get all the bread
 router.get('/', (req,res) => {
-    res.send(Bread)
+    res.render('index')
 })
 
 //Get: get a bread by its index
