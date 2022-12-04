@@ -14,6 +14,16 @@ router.get('/new', (req,res) => {
     res.render('new')
 })
 
+//GET: edit bread page 
+router.get('/:index/edit', (req,res) => {
+    const { index } = req.params
+    const bread = Bread[index]
+    res.render('edit', {
+        bread,
+        index
+    })
+})
+
 //Get: get a bread by its index
 // : = query parameter
 router.get('/:index', (req,res) => {
@@ -37,6 +47,20 @@ router.post('/', (req,res) => {
     Bread.push(req.body)
     res.redirect('/breads')
 
+})
+
+router.put('/:index', (req,res) => {
+    const { index } = req.params
+    const { image,hasGluten} = req.body
+    if(!image) req.body.image = 'https://suebeehomemaker.com/wp-content/uploads/2021/10/sliced-french-bread.jpg'
+    if (hasGluten === 'on'){
+        req.body.hasGluten = true
+    } else {
+        req.body.hasGluten = false
+    }
+
+    Bread[index] = req.body
+    res.redirect(`/breads/${index}`)
 })
 
 //Delete a bread 
