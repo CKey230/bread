@@ -30,7 +30,7 @@ function New () {
             id="hasGluten"
             defaultChecked
           />
-          <br />
+          
           <input type="submit"/>
         </form>
       </Default>
