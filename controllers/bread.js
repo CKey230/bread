@@ -74,4 +74,9 @@ router.delete('/:id', async (req,res) => {
     res.status(303).redirect('/breads')
 })
 
+router.get('/data/delete', async (req,res) => {
+    await Bread.deleteMany()
+    res.redirect('/breads')
+})
+
 module.exports = router
