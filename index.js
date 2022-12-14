@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const breadRoutes = require('./controllers/bread')
+const bakerRoutes = require('./controllers/baker')
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 
 //Routes
 app.use('/breads', breadRoutes)
+app.use('/baker', bakerRoutes)
 
 
 //http verbs/methods: get, post, put, patch, delete 
