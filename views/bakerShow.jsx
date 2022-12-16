@@ -12,11 +12,14 @@ function Show ({ baker }) {
             {
                 baker.breads.map(bread => {
                     return(
-                        <li key={bread.id}>{bread.name}</li>
+                        <li key={bread._id}>{bread.name}</li>
                     )
                 })
             }
           </ul>
+          <form action={`/baker/${baker._id}?_method=DELETE`} method='POST'>
+            <input type='submit' value='DELETE'></input>
+          </form>
       </Default>
     )
 }
